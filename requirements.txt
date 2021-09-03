@@ -1,2 +1,4 @@
 beautifulsoup4==4.4.1
 requests>=2.20.0
+python-telegram-bot==13.7
+PySocks==1.7.1

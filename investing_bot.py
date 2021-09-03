@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import requests
 from time import sleep
 from config import TOKEN, urls
+import socket
+import socks
 
 
 class BotHandler:
@@ -9,7 +11,6 @@ class BotHandler:
     def __init__(self, token):
         self.token = token
         self.api_url = "https://api.telegram.org/bot{}/".format(token)
-
     def get_updates(self, offset=None, timeout=30):
         method = 'getUpdates'
         params = {'timeout': timeout, 'offset': offset}
@@ -34,6 +35,8 @@ class BotHandler:
 
 def investing_parser(ticker):
     try:
+        socks.set_default_proxy(socks.SOCKS5, "127.0.0.1", 1080)
+        socket.socket = socks.socksocket
         response = requests.get(urls[ticker], headers={"user-agent": "Mozilla/5.0 (X11; Linux x86_64) \
                                                                      AppleWebKit/537.36 (K HTML, like Gecko) \
                                                                      Chrome/53.0.2785.143 Safari/537.36"})

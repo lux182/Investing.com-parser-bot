@@ -1,3 +1,3 @@
-TOKEN = """Telegram bot token"""
-urls = """Investing.com assets urls dictionary for parsing. Keys: tickers, values: urls"""
+TOKEN = """1934365844:AAHYZ4eWj0zlcIWJb-VzCo-quzJWqx5AObE"""
+urls = """["baotou-steel":"https://cn.investing.com/equities/baotou-steel"]"""
 
